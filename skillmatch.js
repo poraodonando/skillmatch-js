@@ -50,3 +50,17 @@ const lista_vagas = [
     modalidade:"Remoto"
   }
 ];
+
+//Obtem uma classificação percentual das habilidades
+
+function obterClassificacao(percentual) {
+  if (percentual >= 80){
+     return "Alta Compatibilidade";
+    }
+    
+  if (percentual >= 50) {
+    return "Média Compatibilidade";
+    }
+  
+    return "Baixa Compatibilidade";
+}
