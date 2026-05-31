@@ -1,6 +1,27 @@
 console.log("Bem vindo ao Projeto Skill Match")
 
 
+class Vaga {
+  constructor(
+    empresa,
+    cargo,
+    compatibilidade,
+    habilidadesEncontradas,
+    habilidadesFaltantes,
+    classificacao,
+  ) {
+    this.empresa = empresa;
+    this.cargo = cargo;
+    this.compatibilidade = compatibilidade;
+    this.habilidadesEncontradas = habilidadesEncontradas;
+    this.habilidadesFaltantes = habilidadesFaltantes;
+    this.classificacao = classificacao;
+  }
+}
+
+
+
+
 
 
 // RF01 - Perfil do candidato
@@ -122,3 +143,28 @@ function faltaEstudar(candidato, vagas) {
     .sort((a, b) => b[1] - a[1])
     .map(([materia, qtd]) => `${materia} (${qtd} vaga(s))`);
 } 
+
+// Gerando Relatório
+
+function gerarRelatorio(candidato, vagas) {
+  const resultados = compararCandidatoVagas(candidato, vagas);
+  const recomendacoes = faltaEstudar(candidato, vagas);
+
+  console.log(" RESULTADO DAS VAGAS:\n");
+  console.log(resultados);
+  console.log("---------------------")
+
+  console.log("\n📚 RECOMENDAÇÃO DE ESTUDO:\n");
+
+  if (recomendacoes.length === 0) {
+    console.log("Você já atende todas as exigências das vagas!");
+  } else {
+    console.log("Priorize estudar:");
+    recomendacoes.forEach((item) => console.log("- " + item));
+    console.log("pois esses conteúdos aparecem nas vagas analisadas.");
+  }
+
+  console.log("---------------------")
+}
+
+gerarRelatorio(candidato, lista_vagas);
