@@ -108,7 +108,7 @@ function compararCandidatoVagas(candidato, vagas) {
 
 // Falta Estudar
 function faltaEstudar(candidato, vagas) {
-  let contadorMaterias = {};
+  let contadorRequisitos = {};
 
   for (const vaga of lista_vagas) {
     for (const requisito of vaga.requisitos) {
