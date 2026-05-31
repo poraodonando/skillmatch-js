@@ -81,3 +81,26 @@ function matchHabilidades(habilidades, requisitos) {
     compatibilidade,
   };
 }
+
+//Comparação Candidato x Vagas
+
+function compararCandidatoVagas(candidato, vagas) {
+  const resultados = [];
+
+  for (const vaga of vagas) {
+    const match = matchHabilidades(candidato.habilidades, vaga.requisitos);
+
+    resultados.push(
+      new Vaga(
+        vaga.empresa,
+        vaga.cargo,
+        `${match.compatibilidade.toFixed(0)}%`,
+        match.encontradas,
+        match.faltantes,
+        obterClassificacao(match.compatibilidade),
+      ),
+    );
+  }
+
+  return resultados;
+}
