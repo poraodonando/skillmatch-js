@@ -104,3 +104,21 @@ function compararCandidatoVagas(candidato, vagas) {
 
   return resultados;
 }
+
+
+// Falta Estudar
+function faltaEstudar(candidato, vagas) {
+  const contadorMaterias = {};
+
+  for (const vaga of vagas) {
+    for (const requisito of vaga.requisitos) {
+      if (!candidato.habilidades.includes(requisito)) {
+        contadorMaterias[requisito] = (contadorMaterias[requisito] || 0) + 1;
+      }
+    }
+  }
+
+  return Object.entries(contadorMaterias)
+    .sort((a, b) => b[1] - a[1])
+    .map(([materia, qtd]) => `${materia} (${qtd} vaga(s))`);
+} 
