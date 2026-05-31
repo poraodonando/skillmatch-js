@@ -68,7 +68,7 @@ function obterClassificacao(percentual) {
 
 //Match de Habilidades
 
-function matchDeHabilidades(habilidades, requisitos) {
+function matchHabilidades(habilidades, requisitos) {
   const encontradas = requisitos.filter((req) => habilidades.includes(req));
 
   const faltantes = requisitos.filter((req) => !habilidades.includes(req));
