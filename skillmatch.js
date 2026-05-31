@@ -87,7 +87,7 @@ function matchHabilidades(habilidades, requisitos) {
 function compararCandidatoVagas(candidato, vagas) {
   const resultados = [];
 
-  for (const vaga of vagas) {
+  for (const vaga of lista_vagas) {
     const match = matchHabilidades(candidato.habilidades, vaga.requisitos);
 
     resultados.push(
@@ -110,7 +110,7 @@ function compararCandidatoVagas(candidato, vagas) {
 function faltaEstudar(candidato, vagas) {
   const contadorMaterias = {};
 
-  for (const vaga of vagas) {
+  for (const vaga of lista_vagas) {
     for (const requisito of vaga.requisitos) {
       if (!candidato.habilidades.includes(requisito)) {
         contadorMaterias[requisito] = (contadorMaterias[requisito] || 0) + 1;
