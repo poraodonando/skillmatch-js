@@ -1,19 +1,9 @@
-console.log("Bem vindo ao Projeto Skill Match")
-
-
-class Vaga {
-  constructor(empresa,cargo,compatibilidade, habilidadesEncontradas,habilidadesFaltantes,  classificacao) {
-    this.empresa = empresa;
-    this.cargo = cargo;
-    this.compatibilidade = compatibilidade;
-    this.habilidadesEncontradas = habilidadesEncontradas;
-    this.habilidadesFaltantes = habilidadesFaltantes;
-    this.classificacao = classificacao;
-  }
-}
+console.log("=====================================")
+console.log("    Bem vindo ao SkillMatch JS — ")
+console.log("Simulador de Compatibilidade de Vagas")
+console.log("=====================================")
 
 // RF01 - Perfil do candidato
-
 
 class Candidato {
   constructor(nome, area, habilidades, experienciaMeses) {
@@ -31,7 +21,20 @@ const candidato = {
     experienciaMeses: 1
 }
 
-//RF02 – Criar uma lista de vagas
+// Classe Vaga
+
+class Vaga {
+  constructor(empresa,cargo,compatibilidade, habilidadesEncontradas,habilidadesFaltantes,  classificacao) {
+    this.empresa = empresa;
+    this.cargo = cargo;
+    this.compatibilidade = compatibilidade;
+    this.habilidadesEncontradas = habilidadesEncontradas;
+    this.habilidadesFaltantes = habilidadesFaltantes;
+    this.classificacao = classificacao;
+  }
+}
+
+// Criar uma lista de vagas
 
 
 const lista_vagas = [
@@ -72,17 +75,16 @@ const lista_vagas = [
 
 //Obtem uma classificação percentual das habilidades
 
-function obterClassificacao(percentual) {
+function classificaCompatibilidade(percentual) {
   if (percentual >= 80){
-     return "Alta Compatibilidade";
-    }
-    
-  if (percentual >= 50) {
-    return "Média Compatibilidade";
+        return "Alta Compatibilidade";
+    } else if (percentual >= 50) {
+        return "Média Compatibilidade";
+    } else{
+        return "Baixa Compatibilidade";        
     }
   
-    return "Baixa Compatibilidade";
-}
+};
 
 
 //Match de Habilidades
@@ -116,7 +118,7 @@ function compararCandidatoVagas(candidato, vagas) {
         `${match.compatibilidade.toFixed(0)}%`,
         match.encontradas,
         match.faltantes,
-        obterClassificacao(match.compatibilidade),
+        classificaCompatibilidade(match.compatibilidade),
       ),
     );
   }
@@ -155,9 +157,10 @@ function gerarRelatorio(candidato, vagas) {
   console.log("\nO QUE RECOMENDAMOS:\n");
 
   if (recomendacoes.length === 0) {
-    console.log("Você já tem as habilidades técnicas necessárias!");
+    console.log("Parabéns!!! \n");
+    console.log("Voce atende a TODOS os requisitos da vaga");
   } else {
-    console.log("Pode melhorar em:");
+    console.log("Pontos estudar:");
     recomendacoes.forEach((item) => console.log("- " + item));
     
   }
