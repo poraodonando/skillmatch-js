@@ -2,14 +2,7 @@ console.log("Bem vindo ao Projeto Skill Match")
 
 
 class Vaga {
-  constructor(
-    empresa,
-    cargo,
-    compatibilidade,
-    habilidadesEncontradas,
-    habilidadesFaltantes,
-    classificacao,
-  ) {
+  constructor(empresa,cargo,compatibilidade, habilidadesEncontradas,habilidadesFaltantes,  classificacao) {
     this.empresa = empresa;
     this.cargo = cargo;
     this.compatibilidade = compatibilidade;
@@ -19,12 +12,17 @@ class Vaga {
   }
 }
 
-
-
-
-
-
 // RF01 - Perfil do candidato
+
+
+class Candidato {
+  constructor(nome, area, habilidades, experienciaMeses) {
+    this.nome = nome;
+    this.area = area;
+    this.habilidades = habilidades;
+    this.experienciaMeses = experienciaMeses;
+  }
+}
 
 const candidato = {
     nome: 'Nando  Batista',
@@ -150,18 +148,18 @@ function gerarRelatorio(candidato, vagas) {
   const resultados = compararCandidatoVagas(candidato, vagas);
   const recomendacoes = faltaEstudar(candidato, vagas);
 
-  console.log(" RESULTADO DAS VAGAS:\n");
+  console.log("RESULTADO DAS VAGAS:\n");
   console.log(resultados);
   console.log("---------------------")
 
-  console.log("\n📚 RECOMENDAÇÃO DE ESTUDO:\n");
+  console.log("\nO QUE RECOMENDAMOS:\n");
 
   if (recomendacoes.length === 0) {
-    console.log("Você já atende todas as exigências das vagas!");
+    console.log("Você já tem as habilidades técnicas necessárias!");
   } else {
-    console.log("Priorize estudar:");
+    console.log("Pode melhorar em:");
     recomendacoes.forEach((item) => console.log("- " + item));
-    console.log("pois esses conteúdos aparecem nas vagas analisadas.");
+    
   }
 
   console.log("---------------------")
