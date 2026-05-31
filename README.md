@@ -60,3 +60,8 @@ skillmatch-js/
 ├── skillmatch.js
 └── README.md
 
+
+## Link KANBAN
+
+https://trello.com/invite/b/6a1b4f68b97830de7f0d6049/ATTI1b2fe9164ea0987fe350c5821be7dd7389F39FF2/skillmatch
+

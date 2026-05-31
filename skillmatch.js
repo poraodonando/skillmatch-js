@@ -42,7 +42,7 @@ const lista_vagas = [
     id: 1,
     empresa: "AuraTech",
     cargo: "Desenvolvedor Front-End Júnior",
-    requisitos: ["JavaScript", "GitHub", "Lógica de Programação"],
+    requisitos: ["JavaScript", "GitHub", "Lógica de Programação", "Kanban"],
     salario: 8100,
     modalidade: "Remoto"
   },
@@ -63,12 +63,13 @@ const lista_vagas = [
     salario: 6300,
     modalidade: "Presencial"  
   },
+
   {
     id: 4,
     empresa: "BetaCore",
     cargo: "Front-End Pleno",
-    salario:9600,
     requisitos:["HTML","CSS","TypeScript","React","Banco de dados","OOP","Kanban"],
+    salario:9600,
     modalidade:"Remoto"
   }
 ];
