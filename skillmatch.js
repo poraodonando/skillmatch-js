@@ -64,3 +64,20 @@ function obterClassificacao(percentual) {
   
     return "Baixa Compatibilidade";
 }
+
+
+//Match de Habilidades
+
+function matchDeHabilidades(habilidades, requisitos) {
+  const encontradas = requisitos.filter((req) => habilidades.includes(req));
+
+  const faltantes = requisitos.filter((req) => !habilidades.includes(req));
+
+  const compatibilidade = (encontradas.length / requisitos.length) * 100;
+
+  return {
+    encontradas,
+    faltantes,
+    compatibilidade,
+  };
+}
