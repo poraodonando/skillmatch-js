@@ -6,7 +6,7 @@ console.log("Bem vindo ao Projeto Skill Match")
 // RF01 - Perfil do candidato
 
 const candidato = {
-    nome: 'Nando',
+    nome: 'Nando  Batista',
     area: 'Front-End',
     habilidades: ["JavaScript", "GitHub", "Lógica de Programação", "Godot","Unity5","HTML","CSS"],
     experienciaMeses: 1
@@ -69,26 +69,26 @@ function obterClassificacao(percentual) {
 //Match de Habilidades
 
 function matchHabilidades(habilidades, requisitos) {
-  const encontradas = requisitos.filter((req) => habilidades.includes(req));
+  let encontradas = requisitos.filter((req) => habilidades.includes(req));
 
-  const faltantes = requisitos.filter((req) => !habilidades.includes(req));
+  let  faltantes = requisitos.filter((req) => !habilidades.includes(req));
 
-  const compatibilidade = (encontradas.length / requisitos.length) * 100;
+  let compatibilidade = (encontradas.length / requisitos.length) * 100;
 
   return {
     encontradas,
     faltantes,
     compatibilidade,
   };
-}
+}   
 
 //Comparação Candidato x Vagas
 
 function compararCandidatoVagas(candidato, vagas) {
-  const resultados = [];
+  let resultados = [];
 
   for (const vaga of lista_vagas) {
-    const match = matchHabilidades(candidato.habilidades, vaga.requisitos);
+    let match = matchHabilidades(candidato.habilidades, vaga.requisitos);
 
     resultados.push(
       new Vaga(
@@ -108,17 +108,17 @@ function compararCandidatoVagas(candidato, vagas) {
 
 // Falta Estudar
 function faltaEstudar(candidato, vagas) {
-  const contadorMaterias = {};
+  let contadorMaterias = {};
 
   for (const vaga of lista_vagas) {
     for (const requisito of vaga.requisitos) {
       if (!candidato.habilidades.includes(requisito)) {
-        contadorMaterias[requisito] = (contadorMaterias[requisito] || 0) + 1;
+        contadorRequisitos[requisito] = (contadorRequisitos[requisito] || 0) + 1;
       }
     }
   }
 
-  return Object.entries(contadorMaterias)
+  return Object.entries(contadorRequisitos)
     .sort((a, b) => b[1] - a[1])
     .map(([materia, qtd]) => `${materia} (${qtd} vaga(s))`);
 } 
